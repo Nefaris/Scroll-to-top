@@ -15,7 +15,7 @@ window.onload = () => {
 
   let stt = document.createElement("div");
   stt.innerHTML = stt_icon;
-  stt.style.cssText = 'cursor: pointer;' + 'position: fixed; ' + 'display: none;' + 'justify-content: center;' + 'align-items: center;' + 'width:' + stt_width + '; height: ' + stt_height + '; border-radius: ' + stt_border_radius + '; right: ' + stt_right_pos + '; bottom: ' + stt_bottom_pos + '; color: ' + stt_icon_color + '; background-color: ' + stt_background_color + '; font-size: ' + stt_icon_size;
+  stt.style.cssText = 'transition: 500ms;' + 'opacity: 1;' + 'cursor: pointer;' + 'position: fixed; ' + 'display: flex;' + 'justify-content: center;' + 'align-items: center;' + 'width:' + stt_width + '; height: ' + stt_height + '; border-radius: ' + stt_border_radius + '; right: ' + stt_right_pos + '; bottom: ' + stt_bottom_pos + '; color: ' + stt_icon_color + '; background-color: ' + stt_background_color + '; font-size: ' + stt_icon_size;
 
   document.body.appendChild(stt);
 
@@ -24,19 +24,23 @@ window.onload = () => {
   });
 
   window.addEventListener('scroll', () => {
-    checkSize();
-  });
-
-  checkSize();
-
-  function checkSize() {
     let scroll_h = window.scrollY;
     let window_h = window.innerHeight;
 
     if (scroll_h > window_h) {
-      stt.style.display = 'flex';
+      fadeIn(stt);
     } else {
-      stt.style.display = 'none';
+      fadeOut(stt);
     }
-  }
+  });
 };
+
+function fadeOut(element) {
+  element.style.opacity = 0;
+  element.style.zIndex = -999;
+}
+
+function fadeIn(element) {
+  element.style.opacity = 1;
+  element.style.zIndex = 999;
+}
