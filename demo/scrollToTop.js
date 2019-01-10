@@ -5,13 +5,18 @@ let stt_bottom_pos = "50px";
 let stt_width = "60px";
 let stt_height = "60px";
 
+//import font awesome
+let import_FA = true;
+
 let stt_icon = '<i class="fas fa-angle-up"></i>';
 let stt_icon_size = '1em';
 let stt_icon_color = "#fff";
 
 window.onload = () => {
-	document.head.innerHTML +=
-		('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">' + '<style>html{scroll-behavior: smooth;}</style>');
+	if (import_FA) document.head.innerHTML +=
+		'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">';
+
+	document.head.innerHTML += '<style>html{scroll-behavior: smooth;}</style>';
 
 	let stt = document.createElement("div");
 	stt.innerHTML = stt_icon;
@@ -19,11 +24,11 @@ window.onload = () => {
 
 	document.body.appendChild(stt);
 
+	checkScroll_h();
+
 	stt.addEventListener("click", () => {
 		document.body.scrollIntoView();
 	});
-
-	checkScroll_h();
 
 	window.addEventListener('scroll', () => {
 		checkScroll_h();

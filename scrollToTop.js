@@ -5,48 +5,53 @@ let stt_bottom_pos = "50px";
 let stt_width = "60px";
 let stt_height = "60px";
 
+//import font awesome
+let import_FA = true;
+
 let stt_icon = '<i class="fas fa-angle-up"></i>';
 let stt_icon_size = '1em';
 let stt_icon_color = "#fff";
 
 window.onload = () => {
-  document.head.innerHTML +=
-    ('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">' + '<style>html{scroll-behavior: smooth;}</style>');
+	if (import_FA) document.head.innerHTML +=
+		'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">';
 
-  let stt = document.createElement("div");
-  stt.innerHTML = stt_icon;
-  stt.style.cssText = 'transition: 750ms;' + 'z-index: -999;' + 'opacity: 0;' + 'cursor: pointer;' + 'position: fixed; ' + 'display: flex;' + 'justify-content: center;' + 'align-items: center;' + 'width:' + stt_width + '; height: ' + stt_height + '; border-radius: ' + stt_border_radius + '; right: ' + stt_right_pos + '; bottom: ' + stt_bottom_pos + '; color: ' + stt_icon_color + '; background-color: ' + stt_background_color + '; font-size: ' + stt_icon_size;
+	document.head.innerHTML += '<style>html{scroll-behavior: smooth;}</style>';
 
-  document.body.appendChild(stt);
+	let stt = document.createElement("div");
+	stt.innerHTML = stt_icon;
+	stt.style.cssText = 'transition: 750ms;' + 'z-index: -999;' + 'opacity: 0;' + 'cursor: pointer;' + 'position: fixed; ' + 'display: flex;' + 'justify-content: center;' + 'align-items: center;' + 'width:' + stt_width + '; height: ' + stt_height + '; border-radius: ' + stt_border_radius + '; right: ' + stt_right_pos + '; bottom: ' + stt_bottom_pos + '; color: ' + stt_icon_color + '; background-color: ' + stt_background_color + '; font-size: ' + stt_icon_size;
 
-  stt.addEventListener("click", () => {
-    document.body.scrollIntoView();
-  });
+	document.body.appendChild(stt);
 
-  checkScroll_h();
+	checkScroll_h();
 
-  window.addEventListener('scroll', () => {
-    checkScroll_h();
-  });
+	stt.addEventListener("click", () => {
+		document.body.scrollIntoView();
+	});
 
-  function checkScroll_h() {
-    let scroll_h = window.scrollY;
-    let window_h = window.innerHeight;
+	window.addEventListener('scroll', () => {
+		checkScroll_h();
+	});
 
-    if (scroll_h > window_h) {
-      stt_fadeIn(stt);
-    } else {
-      stt_fadeOut(stt);
-    }
-  }
+	function checkScroll_h() {
+		let scroll_h = window.scrollY;
+		let window_h = window.innerHeight;
 
-  function stt_fadeOut(element) {
-    element.style.opacity = 0;
-    element.style.zIndex = -999;
-  }
+		if (scroll_h > window_h) {
+			stt_fadeIn(stt);
+		} else {
+			stt_fadeOut(stt);
+		}
+	}
 
-  function stt_fadeIn(element) {
-    element.style.opacity = 1;
-    element.style.zIndex = 999;
-  }
+	function stt_fadeOut(element) {
+		element.style.opacity = 0;
+		element.style.zIndex = -999;
+	}
+
+	function stt_fadeIn(element) {
+		element.style.opacity = 1;
+		element.style.zIndex = 999;
+	}
 };
