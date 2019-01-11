@@ -1,7 +1,7 @@
 let stt_background_color = "#000";
 let stt_border_radius = "50%";
 let stt_right_pos = "40px";
-let stt_bottom_pos = "40px";
+let stt_bottom_pos = "20px";
 let stt_width = "60px";
 let stt_height = "60px";
 
@@ -16,7 +16,7 @@ let stt_icon_color = "#fff";
 let stt_display_mobile = false;
 
 //fade, slide-right, slide-bottom
-let stt_enter_effect = 'slide-right';
+let stt_enter_effect = 'fade';
 
 window.onload = () => {
 	if (import_FA) document.head.innerHTML +=
