@@ -12,6 +12,9 @@ let stt_icon = '<i class="fas fa-angle-up"></i>';
 let stt_icon_size = '1em';
 let stt_icon_color = "#fff";
 
+//display on mobile devices
+let stt_display_mobile = false;
+
 window.onload = () => {
 	if (import_FA) document.head.innerHTML +=
 		'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">';
@@ -24,21 +27,23 @@ window.onload = () => {
 
 	document.body.appendChild(stt);
 
-	checkScroll_h();
+	stt_checkWidth();
+	stt_checkScroll_h();
 
 	stt.addEventListener("click", () => {
 		document.body.scrollIntoView();
 	});
 
-	window.addEventListener('scroll', () => {
-		checkScroll_h();
+	window.addEventListener('resize', () => {
+		stt_checkWidth();
 	});
 
-	function checkScroll_h() {
-		let scroll_h = window.scrollY;
-		let window_h = window.innerHeight;
+	window.addEventListener('scroll', () => {
+		stt_checkScroll_h();
+	});
 
-		if (scroll_h > window_h) {
+	function stt_checkScroll_h() {
+		if (window.scrollY > window.innerHeight) {
 			stt_fadeIn(stt);
 		} else {
 			stt_fadeOut(stt);
@@ -51,7 +56,14 @@ window.onload = () => {
 	}
 
 	function stt_fadeIn(element) {
-		element.style.opacity = 1;
 		element.style.zIndex = 999;
+		element.style.opacity = 1;
+	}
+
+	function stt_checkWidth() {
+		if (!stt_display_mobile) {
+			if (window.innerWidth < 600) stt.style.display = 'none';
+			else stt.style.display = 'flex';
+		}
 	}
 };
