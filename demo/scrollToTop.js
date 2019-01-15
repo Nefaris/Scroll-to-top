@@ -1,7 +1,7 @@
 let stt_background_color = "#000";
 let stt_border_radius = "50%";
-let stt_right_pos = "40px";
-let stt_bottom_pos = "20px";
+let stt_right_pos = "2%";
+let stt_bottom_pos = "1%";
 let stt_width = "60px";
 let stt_height = "60px";
 
@@ -13,7 +13,8 @@ let stt_icon_size = '1em';
 let stt_icon_color = "#fff";
 
 //display on mobile devices
-let stt_display_mobile = false;
+let stt_display_mobile = true;
+let stt_smaller_on_mobile = true;
 
 //fade, slide-right, slide-bottom
 let stt_enter_effect = 'fade';
@@ -87,7 +88,9 @@ window.onload = () => {
 	function stt_checkWidth() {
 		if (!stt_display_mobile) {
 			if (window.innerWidth < 600) stt.style.display = 'none';
-			else stt.style.display = 'flex';
+			else {
+				stt.style.display = 'flex';
+			}
 		}
 	}
 };
