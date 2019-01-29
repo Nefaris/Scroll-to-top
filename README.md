@@ -10,7 +10,7 @@ Download and simply add ScrollToTop.js script to your `<head>` tag that is all.
 ```
 
 ## Customization
-##### Basic settings 
+### Basic settings 
 You are able to set color, border radius, position, width, and height of button simply chaning values in quotes. These are CSS values.
 ```javascript
 let stt_background_color = "#000";
@@ -21,7 +21,7 @@ let stt_width = "60px";
 let stt_height = "60px";
 ```
 
-##### Font awesome
+### Font awesome
 The library uses icons from [Font Awesome](https://fontawesome.com/ "Font Awesome"), which imports automaticly, but you are able to disable it by changing the import value to false, if you already use it in your project.
 ```javascript
 let import_FA = true;
@@ -33,7 +33,7 @@ let stt_icon_size = '1em';
 let stt_icon_color = "#fff";
 ```
 
-##### Animation settings
+### Animation settings
 There are 3 types of animations you can choose from.
 ```javascript
 let stt_enter_effect = 'fade';
@@ -45,7 +45,7 @@ let stt_enter_effect = 'slide-right';
 let stt_enter_effect = 'slide-bottom';
 ```
 
-##### Mobile settings
+### Mobile settings
 You can disable button on mobile, and make it smaller.
 ```javascript
 let stt_display_mobile = true;
