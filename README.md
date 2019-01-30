@@ -11,7 +11,7 @@ Download and simply add ScrollToTop.js script to your `<head>` tag that is all.
 
 ## Customization
 ### Basic settings 
-You are able to set color, border radius, position, width, and height of button simply chaning values in quotes. These are CSS values.
+You are able to set color, border radius, position, width, and height of button simply changing values in quotes. These are CSS values.
 ```javascript
 let stt_background_color = "#000";
 let stt_border_radius = "50%";
