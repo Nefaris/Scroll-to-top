@@ -45,6 +45,17 @@ let stt_enter_effect = 'slide-right';
 let stt_enter_effect = 'slide-bottom';
 ```
 
+### Scroll behaviour
+You can set the smooth scroll behaviour by changing this value
+```javascript
+let stt_enable_smooth_scroll = true;
+```
+it adds 
+```css
+scroll-behavior: smooth;
+```
+to your page, you can disable it if you want.
+
 ### Mobile settings
 You can disable button on mobile, and make it smaller.
 ```javascript
