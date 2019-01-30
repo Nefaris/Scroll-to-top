@@ -50,7 +50,7 @@ You can set the smooth scroll behaviour by changing this value
 ```javascript
 let stt_enable_smooth_scroll = true;
 ```
-it adds 
+it adds css property
 ```css
 scroll-behavior: smooth;
 ```
