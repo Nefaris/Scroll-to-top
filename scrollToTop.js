@@ -19,11 +19,16 @@ let stt_smaller_on_mobile = true;
 //fade, slide-right, slide-bottom
 let stt_enter_effect = 'fade';
 
+//smooth scroll
+let stt_enable_smooth_scroll = true;
+
 window.onload = () => {
 	if (import_FA) document.head.innerHTML +=
 		'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">';
 
-	document.head.innerHTML += '<style>html{scroll-behavior: smooth;}</style>';
+	if (stt_enable_smooth_scroll) {
+		document.head.innerHTML += '<style>html{scroll-behavior: smooth;}</style>';
+	}
 
 	let stt = document.createElement("div");
 	stt.innerHTML = stt_icon;
